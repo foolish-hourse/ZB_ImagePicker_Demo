@@ -1,5 +1,5 @@
 //
-//  ZBNavigationViewController.h
+//  ZBImagePickerNavigationViewController.h
 //  MutImagePicker_Demo
 //
 //  Created by Martell on 17/7/2.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZBNavigationViewController : UINavigationController
+@interface ZBImagePickerNavigationViewController : UINavigationController
 
 @end

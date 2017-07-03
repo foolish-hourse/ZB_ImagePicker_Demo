@@ -1,18 +1,18 @@
 //
-//  ZBNavigationViewController.m
+//  ZBImagePickerNavigationViewController.m
 //  MutImagePicker_Demo
 //
 //  Created by Martell on 17/7/2.
 //  Copyright © 2017年 martell. All rights reserved.
 //
 
-#import "ZBNavigationViewController.h"
+#import "ZBImagePickerNavigationViewController.h"
 
-@interface ZBNavigationViewController ()
+@interface ZBImagePickerNavigationViewController ()
 
 @end
 
-@implementation ZBNavigationViewController
+@implementation ZBImagePickerNavigationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -6,8 +6,9 @@
 //  Copyright © 2017年 martell. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ZBImagePickerBaseViewController.h"
 
-@interface ZBImagePickerViewController : UIViewController
+@interface ZBImagePickerViewController : ZBImagePickerBaseViewController
+
 
 @end

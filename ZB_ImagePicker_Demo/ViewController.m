@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "ZBImagePickerViewController.h"
-#import "ZBNavigationViewController.h"
+#import "ZBImagePickerAlbumViewController.h"
+#import "ZBImagePickerNavigationViewController.h"
 
 @interface ViewController ()
 
@@ -30,7 +30,7 @@
 
 #pragma mark - SEL
 - (void)buttonClick:(UIButton *)sender {
-    ZBNavigationViewController *nav = [[ZBNavigationViewController alloc] initWithRootViewController:[[ZBImagePickerViewController alloc] init]];
+    ZBImagePickerNavigationViewController *nav = [[ZBImagePickerNavigationViewController alloc] initWithRootViewController:[[ZBImagePickerAlbumViewController alloc] init]];
     [self presentViewController:nav animated:YES completion:nil];
 }
 

@@ -16,7 +16,14 @@
 		255DC7101F09F98200D9BEBA /* ZB_ImagePicker_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC70F1F09F98200D9BEBA /* ZB_ImagePicker_DemoTests.m */; };
 		255DC71B1F09F98200D9BEBA /* ZB_ImagePicker_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC71A1F09F98200D9BEBA /* ZB_ImagePicker_DemoUITests.m */; };
 		255DC7341F09FA6800D9BEBA /* ZBImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC72F1F09FA6800D9BEBA /* ZBImagePickerViewController.m */; };
-		255DC7351F09FA6800D9BEBA /* ZBNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC7311F09FA6800D9BEBA /* ZBNavigationViewController.m */; };
+		255DC7351F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC7311F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.m */; };
+		255DC7381F0A1FB700D9BEBA /* ZBImagePickerBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC7371F0A1FB700D9BEBA /* ZBImagePickerBaseViewController.m */; };
+		255DC73B1F0A21CC00D9BEBA /* ZBImagePickerCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC73A1F0A21CC00D9BEBA /* ZBImagePickerCollectionViewFlowLayout.m */; };
+		255DC7431F0A29B700D9BEBA /* nav_left_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 255DC7421F0A29B700D9BEBA /* nav_left_black.png */; };
+		255DC7461F0A2EC000D9BEBA /* ZBImagePickerBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC7451F0A2EC000D9BEBA /* ZBImagePickerBottomView.m */; };
+		25DAAFA71F0A845F0049A8D9 /* ZBImagePickerDataSourceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DAAFA61F0A845F0049A8D9 /* ZBImagePickerDataSourceModel.m */; };
+		25DAAFAA1F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DAAFA91F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.m */; };
+		25DAAFAD1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DAAFAC1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +62,22 @@
 		255DC71C1F09F98200D9BEBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		255DC72E1F09FA6800D9BEBA /* ZBImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerViewController.h; sourceTree = "<group>"; };
 		255DC72F1F09FA6800D9BEBA /* ZBImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerViewController.m; sourceTree = "<group>"; };
-		255DC7301F09FA6800D9BEBA /* ZBNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBNavigationViewController.h; sourceTree = "<group>"; };
-		255DC7311F09FA6800D9BEBA /* ZBNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBNavigationViewController.m; sourceTree = "<group>"; };
+		255DC7301F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerNavigationViewController.h; sourceTree = "<group>"; };
+		255DC7311F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerNavigationViewController.m; sourceTree = "<group>"; };
+		255DC7361F0A1FB700D9BEBA /* ZBImagePickerBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerBaseViewController.h; sourceTree = "<group>"; };
+		255DC7371F0A1FB700D9BEBA /* ZBImagePickerBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerBaseViewController.m; sourceTree = "<group>"; };
+		255DC7391F0A21CC00D9BEBA /* ZBImagePickerCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		255DC73A1F0A21CC00D9BEBA /* ZBImagePickerCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		255DC7401F0A23FC00D9BEBA /* ZBImagePickerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerConfig.h; sourceTree = "<group>"; };
+		255DC7421F0A29B700D9BEBA /* nav_left_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_left_black.png; sourceTree = "<group>"; };
+		255DC7441F0A2EC000D9BEBA /* ZBImagePickerBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerBottomView.h; sourceTree = "<group>"; };
+		255DC7451F0A2EC000D9BEBA /* ZBImagePickerBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerBottomView.m; sourceTree = "<group>"; };
+		25DAAFA51F0A845F0049A8D9 /* ZBImagePickerDataSourceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerDataSourceModel.h; sourceTree = "<group>"; };
+		25DAAFA61F0A845F0049A8D9 /* ZBImagePickerDataSourceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerDataSourceModel.m; sourceTree = "<group>"; };
+		25DAAFA81F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerAlbumViewController.h; sourceTree = "<group>"; };
+		25DAAFA91F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerAlbumViewController.m; sourceTree = "<group>"; };
+		25DAAFAB1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerAlbumCell.h; sourceTree = "<group>"; };
+		25DAAFAC1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerAlbumCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +171,8 @@
 		255DC72C1F09FA6800D9BEBA /* ZBImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				255DC7401F0A23FC00D9BEBA /* ZBImagePickerConfig.h */,
+				255DC7411F0A298600D9BEBA /* SourceFile */,
 				255DC72D1F09FA6800D9BEBA /* Controller */,
 				255DC7321F09FA6800D9BEBA /* Model */,
 				255DC7331F09FA6800D9BEBA /* View */,
@@ -162,8 +185,12 @@
 			children = (
 				255DC72E1F09FA6800D9BEBA /* ZBImagePickerViewController.h */,
 				255DC72F1F09FA6800D9BEBA /* ZBImagePickerViewController.m */,
-				255DC7301F09FA6800D9BEBA /* ZBNavigationViewController.h */,
-				255DC7311F09FA6800D9BEBA /* ZBNavigationViewController.m */,
+				25DAAFA81F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.h */,
+				25DAAFA91F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.m */,
+				255DC7301F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.h */,
+				255DC7311F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.m */,
+				255DC7361F0A1FB700D9BEBA /* ZBImagePickerBaseViewController.h */,
+				255DC7371F0A1FB700D9BEBA /* ZBImagePickerBaseViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -171,6 +198,10 @@
 		255DC7321F09FA6800D9BEBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				255DC7391F0A21CC00D9BEBA /* ZBImagePickerCollectionViewFlowLayout.h */,
+				255DC73A1F0A21CC00D9BEBA /* ZBImagePickerCollectionViewFlowLayout.m */,
+				25DAAFA51F0A845F0049A8D9 /* ZBImagePickerDataSourceModel.h */,
+				25DAAFA61F0A845F0049A8D9 /* ZBImagePickerDataSourceModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,8 +209,20 @@
 		255DC7331F09FA6800D9BEBA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				255DC7441F0A2EC000D9BEBA /* ZBImagePickerBottomView.h */,
+				255DC7451F0A2EC000D9BEBA /* ZBImagePickerBottomView.m */,
+				25DAAFAB1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.h */,
+				25DAAFAC1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		255DC7411F0A298600D9BEBA /* SourceFile */ = {
+			isa = PBXGroup;
+			children = (
+				255DC7421F0A29B700D9BEBA /* nav_left_black.png */,
+			);
+			path = SourceFile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				255DC7431F0A29B700D9BEBA /* nav_left_black.png in Resources */,
 				255DC7051F09F98200D9BEBA /* LaunchScreen.storyboard in Resources */,
 				255DC7021F09F98200D9BEBA /* Assets.xcassets in Resources */,
 				255DC7001F09F98200D9BEBA /* Main.storyboard in Resources */,
@@ -315,11 +359,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25DAAFAD1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.m in Sources */,
+				255DC73B1F0A21CC00D9BEBA /* ZBImagePickerCollectionViewFlowLayout.m in Sources */,
+				255DC7461F0A2EC000D9BEBA /* ZBImagePickerBottomView.m in Sources */,
 				255DC7341F09FA6800D9BEBA /* ZBImagePickerViewController.m in Sources */,
-				255DC7351F09FA6800D9BEBA /* ZBNavigationViewController.m in Sources */,
+				25DAAFAA1F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.m in Sources */,
+				255DC7351F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.m in Sources */,
 				255DC6FD1F09F98200D9BEBA /* ViewController.m in Sources */,
 				255DC6FA1F09F98200D9BEBA /* AppDelegate.m in Sources */,
 				255DC6F71F09F98200D9BEBA /* main.m in Sources */,
+				255DC7381F0A1FB700D9BEBA /* ZBImagePickerBaseViewController.m in Sources */,
+				25DAAFA71F0A845F0049A8D9 /* ZBImagePickerDataSourceModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
