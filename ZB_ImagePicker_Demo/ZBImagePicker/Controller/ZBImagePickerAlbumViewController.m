@@ -7,7 +7,7 @@
 //
 
 #import "ZBImagePickerAlbumViewController.h"
-#import "ZBImagePickerViewController.h"
+#import "ZBImagePickerAssetViewController.h"
 
 #import "ZBImagePickerConfig.h"
 
@@ -15,6 +15,7 @@
 
 #import <Photos/Photos.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <CoreLocation/CoreLocation.h>
 
 ///按比例缩放尺寸
 static CGSize CGSizeScale(CGSize size, CGFloat scale) {
@@ -23,7 +24,8 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 
 @interface ZBImagePickerAlbumViewController () <UITableViewDataSource, UITableViewDelegate, PHPhotoLibraryChangeObserver>
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *albumArr;
+@property (nonatomic, strong) NSMutableArray *assetCollections;
+@property (nonatomic, strong) NSMutableArray *fetchResults;
 @end
 
 @implementation ZBImagePickerAlbumViewController
@@ -41,23 +43,59 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     return _tableView;
 }
 
-- (NSMutableArray *)albumArr {
-    if (!_albumArr) {
-        _albumArr = [NSMutableArray new];
+- (NSMutableArray *)assetCollections {
+    if (!_assetCollections) {
+        _assetCollections = [NSMutableArray new];
     }
-    return _albumArr;
+    return _assetCollections;
+}
+
+- (NSMutableArray *)fetchResults {
+    if (!_fetchResults) {
+        _fetchResults = [NSMutableArray new];
+        PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
+        PHFetchResult *userAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
+        [_fetchResults addObjectsFromArray:@[smartAlbums, userAlbums]];
+    }
+    return _fetchResults;
 }
 
 #pragma mark - view Func
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navTitle = @"照片";
+    
+    
     // Register observer
     [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
     
     self.tableView.hidden = NO;
     [self loadData];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    //相机权限
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (authStatus ==AVAuthorizationStatusRestricted || authStatus ==AVAuthorizationStatusDenied)  //用户已经明确否认了这一照片数据的应用程序访问
+    {
+        // 无权限 引导去开启
+        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }
+    
+    //相册权限
+    ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
+    if (author == kCLAuthorizationStatusRestricted || author == kCLAuthorizationStatusDenied){
+        //无权限 引导去开启
+        NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        if ([[UIApplication sharedApplication] canOpenURL:url]) {
+            [[UIApplication sharedApplication] openURL:url];
+        }
+    }
 }
 
 #pragma mark - nav methods
@@ -67,7 +105,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.albumArr.count;;
+    return self.assetCollections.count;;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -78,7 +116,7 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.tag = indexPath.row;
     
-    PHAssetCollection *assetCollection = self.albumArr[indexPath.row];
+    PHAssetCollection *assetCollection = self.assetCollections[indexPath.row];
     PHFetchOptions *options = [PHFetchOptions new];
     
 //    switch (self.imagePickerController.mediaType) {
@@ -169,13 +207,33 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"indexpath:%ld",(long)indexPath.row);
-    ZBImagePickerViewController *vc = [[ZBImagePickerViewController alloc] init];
+    PHAssetCollection *assetCollection = self.assetCollections[indexPath.row];
+    ZBImagePickerAssetViewController *vc = [[ZBImagePickerAssetViewController alloc] init];
+    vc.assetCollection = assetCollection;
+//    vc.navTitle = assetCollection.localizedTitle;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - PHPhotoLibraryChangeObserver
 - (void)photoLibraryDidChange:(PHChange *)changeInstance {
     NSLog(@"photoLibraryDidChange");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSMutableArray *fetchResults = [self.fetchResults mutableCopy];
+        
+        [self.fetchResults enumerateObjectsUsingBlock:^(PHFetchResult *fetchResult, NSUInteger index, BOOL *stop) {
+            PHFetchResultChangeDetails *changeDetails = [changeInstance changeDetailsForFetchResult:fetchResult];
+            
+            if (changeDetails) {
+                [fetchResults replaceObjectAtIndex:index withObject:changeDetails.fetchResultAfterChanges];
+            }
+        }];
+        
+        if (![self.fetchResults isEqualToArray:fetchResults]) {
+            [self.fetchResults removeAllObjects];
+            [self.fetchResults addObjectsFromArray:fetchResults];
+            [self loadData];
+        }
+    });
 }
 
 #pragma mark - methods
@@ -230,27 +288,24 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     NSArray *assetCollectionSubtypes = @[
                                      @(PHAssetCollectionSubtypeSmartAlbumUserLibrary),
                                      @(PHAssetCollectionSubtypeAlbumMyPhotoStream),
-                                     @(PHAssetCollectionSubtypeSmartAlbumPanoramas),
-                                     @(PHAssetCollectionSubtypeSmartAlbumVideos),
-                                     @(PHAssetCollectionSubtypeSmartAlbumBursts)
+//                                     @(PHAssetCollectionSubtypeSmartAlbumPanoramas),
+//                                     @(PHAssetCollectionSubtypeSmartAlbumVideos),
+//                                     @(PHAssetCollectionSubtypeSmartAlbumBursts)
                                      ];
     
-    // Fetch user albums and smart albums
-    PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
-    PHFetchResult *userAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
-    NSArray *fetchResults = @[smartAlbums, userAlbums];
+//    PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
+//    PHFetchResult *userAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAny options:nil];
 
-    // Filter albums
     NSMutableDictionary *smartsAlbums = [NSMutableDictionary dictionaryWithCapacity:assetCollectionSubtypes.count];
-    NSMutableArray *usersAlbums = [NSMutableArray array];
+    NSMutableArray *userAlbums = [NSMutableArray array];
     
-    for (PHFetchResult *fetchResult in fetchResults) {
+    for (PHFetchResult *fetchResult in self.fetchResults) {
         [fetchResult enumerateObjectsUsingBlock:^(PHAssetCollection *assetCollection, NSUInteger index, BOOL *stop) {
             PHAssetCollectionSubtype subtype = assetCollection.assetCollectionSubtype;
             
             if (subtype == PHAssetCollectionSubtypeAlbumRegular) {
-                [usersAlbums addObject:assetCollection];
-            } else if ([assetCollectionSubtypes containsObject:@(subtype)]) {
+                [userAlbums addObject:assetCollection];
+            }else if ([assetCollectionSubtypes containsObject:@(subtype)]) {
                 if (!smartsAlbums[@(subtype)]) {
                     smartsAlbums[@(subtype)] = [NSMutableArray array];
                 }
@@ -261,7 +316,6 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
     
     NSMutableArray *assetCollections = [NSMutableArray array];
     
-    // Fetch smart albums
     for (NSNumber *assetCollectionSubtype in assetCollectionSubtypes) {
         NSArray *collections = smartsAlbums[assetCollectionSubtype];
         
@@ -270,13 +324,12 @@ static CGSize CGSizeScale(CGSize size, CGFloat scale) {
         }
     }
     
-    // Fetch user albums
     [userAlbums enumerateObjectsUsingBlock:^(PHAssetCollection *assetCollection, NSUInteger index, BOOL *stop) {
         [assetCollections addObject:assetCollection];
     }];
     
-    [self.albumArr removeAllObjects];
-    [self.albumArr addObjectsFromArray:assetCollections];
+    [self.assetCollections removeAllObjects];
+    [self.assetCollections addObjectsFromArray:assetCollections];
     [self.tableView reloadData];
     
 }

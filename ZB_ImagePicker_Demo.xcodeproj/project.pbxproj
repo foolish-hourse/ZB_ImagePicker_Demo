@@ -15,7 +15,7 @@
 		255DC7051F09F98200D9BEBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 255DC7031F09F98200D9BEBA /* LaunchScreen.storyboard */; };
 		255DC7101F09F98200D9BEBA /* ZB_ImagePicker_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC70F1F09F98200D9BEBA /* ZB_ImagePicker_DemoTests.m */; };
 		255DC71B1F09F98200D9BEBA /* ZB_ImagePicker_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC71A1F09F98200D9BEBA /* ZB_ImagePicker_DemoUITests.m */; };
-		255DC7341F09FA6800D9BEBA /* ZBImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC72F1F09FA6800D9BEBA /* ZBImagePickerViewController.m */; };
+		255DC7341F09FA6800D9BEBA /* ZBImagePickerAssetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC72F1F09FA6800D9BEBA /* ZBImagePickerAssetViewController.m */; };
 		255DC7351F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC7311F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.m */; };
 		255DC7381F0A1FB700D9BEBA /* ZBImagePickerBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC7371F0A1FB700D9BEBA /* ZBImagePickerBaseViewController.m */; };
 		255DC73B1F0A21CC00D9BEBA /* ZBImagePickerCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 255DC73A1F0A21CC00D9BEBA /* ZBImagePickerCollectionViewFlowLayout.m */; };
@@ -24,6 +24,7 @@
 		25DAAFA71F0A845F0049A8D9 /* ZBImagePickerDataSourceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DAAFA61F0A845F0049A8D9 /* ZBImagePickerDataSourceModel.m */; };
 		25DAAFAA1F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DAAFA91F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.m */; };
 		25DAAFAD1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DAAFAC1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.m */; };
+		25DAAFB01F0BFB400049A8D9 /* ZBImagePickerAssetCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25DAAFAF1F0BFB400049A8D9 /* ZBImagePickerAssetCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +61,8 @@
 		255DC7161F09F98200D9BEBA /* ZB_ImagePicker_DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZB_ImagePicker_DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		255DC71A1F09F98200D9BEBA /* ZB_ImagePicker_DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZB_ImagePicker_DemoUITests.m; sourceTree = "<group>"; };
 		255DC71C1F09F98200D9BEBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		255DC72E1F09FA6800D9BEBA /* ZBImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerViewController.h; sourceTree = "<group>"; };
-		255DC72F1F09FA6800D9BEBA /* ZBImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerViewController.m; sourceTree = "<group>"; };
+		255DC72E1F09FA6800D9BEBA /* ZBImagePickerAssetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerAssetViewController.h; sourceTree = "<group>"; };
+		255DC72F1F09FA6800D9BEBA /* ZBImagePickerAssetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerAssetViewController.m; sourceTree = "<group>"; };
 		255DC7301F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerNavigationViewController.h; sourceTree = "<group>"; };
 		255DC7311F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerNavigationViewController.m; sourceTree = "<group>"; };
 		255DC7361F0A1FB700D9BEBA /* ZBImagePickerBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerBaseViewController.h; sourceTree = "<group>"; };
@@ -78,6 +79,8 @@
 		25DAAFA91F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerAlbumViewController.m; sourceTree = "<group>"; };
 		25DAAFAB1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerAlbumCell.h; sourceTree = "<group>"; };
 		25DAAFAC1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerAlbumCell.m; sourceTree = "<group>"; };
+		25DAAFAE1F0BFB400049A8D9 /* ZBImagePickerAssetCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBImagePickerAssetCollectionViewCell.h; sourceTree = "<group>"; };
+		25DAAFAF1F0BFB400049A8D9 /* ZBImagePickerAssetCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBImagePickerAssetCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,8 +186,8 @@
 		255DC72D1F09FA6800D9BEBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				255DC72E1F09FA6800D9BEBA /* ZBImagePickerViewController.h */,
-				255DC72F1F09FA6800D9BEBA /* ZBImagePickerViewController.m */,
+				255DC72E1F09FA6800D9BEBA /* ZBImagePickerAssetViewController.h */,
+				255DC72F1F09FA6800D9BEBA /* ZBImagePickerAssetViewController.m */,
 				25DAAFA81F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.h */,
 				25DAAFA91F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.m */,
 				255DC7301F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.h */,
@@ -213,6 +216,8 @@
 				255DC7451F0A2EC000D9BEBA /* ZBImagePickerBottomView.m */,
 				25DAAFAB1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.h */,
 				25DAAFAC1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.m */,
+				25DAAFAE1F0BFB400049A8D9 /* ZBImagePickerAssetCollectionViewCell.h */,
+				25DAAFAF1F0BFB400049A8D9 /* ZBImagePickerAssetCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -292,6 +297,7 @@
 				TargetAttributes = {
 					255DC6F11F09F98200D9BEBA = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = VFJ4NMBW29;
 						ProvisioningStyle = Automatic;
 					};
 					255DC70A1F09F98200D9BEBA = {
@@ -360,9 +366,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				25DAAFAD1F0A93EE0049A8D9 /* ZBImagePickerAlbumCell.m in Sources */,
+				25DAAFB01F0BFB400049A8D9 /* ZBImagePickerAssetCollectionViewCell.m in Sources */,
 				255DC73B1F0A21CC00D9BEBA /* ZBImagePickerCollectionViewFlowLayout.m in Sources */,
 				255DC7461F0A2EC000D9BEBA /* ZBImagePickerBottomView.m in Sources */,
-				255DC7341F09FA6800D9BEBA /* ZBImagePickerViewController.m in Sources */,
+				255DC7341F09FA6800D9BEBA /* ZBImagePickerAssetViewController.m in Sources */,
 				25DAAFAA1F0A8D730049A8D9 /* ZBImagePickerAlbumViewController.m in Sources */,
 				255DC7351F09FA6800D9BEBA /* ZBImagePickerNavigationViewController.m in Sources */,
 				255DC6FD1F09F98200D9BEBA /* ViewController.m in Sources */,
@@ -518,10 +525,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VFJ4NMBW29;
 				INFOPLIST_FILE = ZB_ImagePicker_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.czb.ZB-ImagePicker-Demo.ZB-ImagePicker-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -529,10 +539,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VFJ4NMBW29;
 				INFOPLIST_FILE = ZB_ImagePicker_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.czb.ZB-ImagePicker-Demo.ZB-ImagePicker-Demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
